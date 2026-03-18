@@ -1,0 +1,94 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors — raw hex values, no var() references inside @theme */
+  --color-background: #0a0e1a;
+  --color-foreground: #f0f4ff;
+  --color-card: #111827;
+  --color-card-foreground: #f0f4ff;
+  --color-popover: #151e30;
+  --color-popover-foreground: #f0f4ff;
+  --color-primary: #00d563;
+  --color-primary-foreground: #0a0e1a;
+  --color-secondary: #1a2540;
+  --color-secondary-foreground: #f0f4ff;
+  --color-muted: #1a2540;
+  --color-muted-foreground: #8a9ab5;
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #0a0e1a;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #f0f4ff;
+  --color-border: #1e2d47;
+  --color-input: #1a2540;
+  --color-ring: #00d563;
+  --color-chart-1: #00d563;
+  --color-chart-2: #f59e0b;
+  --color-chart-3: #3b82f6;
+  --color-chart-4: #ef4444;
+  --color-chart-5: #8b5cf6;
+  --color-sidebar: #0d1422;
+  --color-sidebar-foreground: #f0f4ff;
+  --color-sidebar-primary: #00d563;
+  --color-sidebar-primary-foreground: #0a0e1a;
+  --color-sidebar-accent: #1a2540;
+  --color-sidebar-accent-foreground: #f0f4ff;
+  --color-sidebar-border: #1e2d47;
+  --color-sidebar-ring: #00d563;
+
+  /* Radius */
+  --radius: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+}
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+    border-color: var(--color-border);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::-webkit-scrollbar { width: 4px; height: 4px; }
+  ::-webkit-scrollbar-track { background: #0a0e1a; }
+  ::-webkit-scrollbar-thumb { background: #1e2d47; border-radius: 2px; }
+  ::-webkit-scrollbar-thumb:hover { background: #8a9ab5; }
+}
+
+/* Live pulse animation */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.live-dot { animation: live-pulse 1.2s ease-in-out infinite; }
+
+/* Ticker scroll */
+@keyframes ticker {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+.ticker-content { animation: ticker 25s linear infinite; }
+
+/* Glow utilities */
+.glow-green { box-shadow: 0 0 24px rgba(0, 213, 99, 0.3); }
+.glow-amber { box-shadow: 0 0 24px rgba(245, 158, 11, 0.3); }
+
+/* Contest card hover lift */
+.contest-card { transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.contest-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+
+/* Prize gradient text */
+.prize-text {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Progress bar fill */
+.progress-fill { background: linear-gradient(90deg, #00d563, #00b853); }
